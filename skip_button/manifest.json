@@ -17,5 +17,5 @@
    },
    "name": "Music Beta Skip controller",
    "permissions": [ "tabs", "http://music.google.com/*" ],
-   "version": "1.0.0",
+   "version": "1.0.0"
 }
