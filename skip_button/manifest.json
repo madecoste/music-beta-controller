@@ -17,6 +17,5 @@
    },
    "name": "Music Beta Skip controller",
    "permissions": [ "tabs", "http://music.google.com/*" ],
-   "version": "1.1.1",
-   "homepage_url": "https://chromeextras.prom.corp.google.com/extensions/detail/kfhkldkfbcofpabahmbmibdahcdpaapb"
+   "version": "1.0.0",
 }

@@ -1,7 +1,6 @@
 {
   "name": "Music Beta Play/Pause controller",
-  "version": "1.3.3",
-  "homepage_url": "https://chromeextras.prom.corp.google.com/extensions/detail/cogmjdnjbahkbihjkoolnfefjbgilgdg",
+  "version": "1.0.0",
 
   "icons": {
     "16": "logo-16x16.png",
