@@ -20,7 +20,7 @@
   }
 
   function UpdateIcon(state) {
-    if (state == "Pause" || state == "Play")
+    if (state == "enable")
       chrome.browserAction.setIcon({path: "skip-19x19.png"});
     else
       chrome.browserAction.setIcon({path: "logo-19x19.png"});
@@ -29,7 +29,7 @@
   function UpdateIconFromPageState() {
     FindMusicBetaTab(function(tab_id) {
         if (tab_id)
-          chrome.tabs.sendRequest(tab_id, "getPlayState", UpdateIcon);
+          chrome.tabs.sendRequest(tab_id, "getSkipState", UpdateIcon);
         else
           chrome.browserAction.setIcon({path: "logo-19x19.png"});
       });
@@ -59,7 +59,7 @@
       });
   });
 
-  // Called when the Play/Pause state changes.
+  // Called when the Skip state changes.
   chrome.extension.onRequest.addListener(function(message, sender, callback) {
       UpdateIconFromPageState();
       callback();
