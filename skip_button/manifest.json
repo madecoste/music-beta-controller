@@ -7,7 +7,7 @@
    },
    "content_scripts": [ {
       "js": [ "play_state_notifier.js" ],
-      "matches": [ "http://music.google.com/*" ],
+      "matches": ["*://music.google.com/*"],
       "run_at": "document_end"
    } ],
    "icons": {
@@ -16,6 +16,8 @@
       "16": "skip-16x16.png"
    },
    "name": "Music Beta Skip controller",
-   "permissions": [ "tabs", "http://music.google.com/*" ],
-   "version": "1.0.1"
+   "permissions": [
+      "tabs",
+      "*://music.google.com/*" ],
+   "version": "1.0.2"
 }

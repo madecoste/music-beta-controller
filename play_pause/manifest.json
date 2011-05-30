@@ -1,6 +1,6 @@
 {
   "name": "Music Beta Play/Pause controller",
-  "version": "1.0.1",
+  "version": "1.0.2",
 
   "icons": {
     "16": "logo-16x16.png",
@@ -16,13 +16,13 @@
   "background_page": "background.html",
   "content_scripts": [
     {
-      "matches": ["http://music.google.com/*"],
+      "matches": ["*://music.google.com/*"],
       "js": ["play_state_notifier.js"],
       "run_at": "document_end"
     }
   ],
   "permissions": [
     "tabs",
-    "http://music.google.com/*"
+    "*://music.google.com/*"
   ]
 }
