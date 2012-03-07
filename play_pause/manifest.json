@@ -10,19 +10,19 @@
   "browser_action": {
     "name": "Play/Pause",
     "default_icon": "logo-19x19.ico",
-    "default_title": "Music Beta Play/Pause controller"
+    "default_title": "Play/Pause controller"
   },
   "omnibox": { "keyword" : "mc" },
   "background_page": "background.html",
   "content_scripts": [
     {
-      "matches": ["*://music.google.com/*"],
+      "matches": ["*://play.google.com/*"],
       "js": ["play_state_notifier.js"],
       "run_at": "document_end"
     }
   ],
   "permissions": [
     "tabs",
-    "*://music.google.com/*"
+    "*://play.google.com/*"
   ]
 }
