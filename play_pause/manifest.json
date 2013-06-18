@@ -1,4 +1,5 @@
 {
+  "manifest_version": 2,
   "name": "Music Beta Play/Pause controller",
   "version": "1.0.3",
 
@@ -13,7 +14,10 @@
     "default_title": "Play/Pause controller"
   },
   "omnibox": { "keyword" : "mc" },
-  "background_page": "background.html",
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
   "content_scripts": [
     {
       "matches": ["*://play.google.com/*"],
