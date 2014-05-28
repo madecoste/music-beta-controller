@@ -1,7 +1,7 @@
 chrome.extension.onRequest.addListener(function(request, sender, callback) {
     var skipAttributes = document.getElementById("ff").attributes;
     var state = "disabled";
-    if (skipAttributes.getNamedItem("class").nodeValue.indexOf("disabled") == -1)
+    if (skipAttributes.getNamedItem("disabled") == undefined)
       state = "enable";
     callback(state);
   });
