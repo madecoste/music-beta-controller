@@ -18,19 +18,15 @@ function FindMusicBetaTab(callback) {
 
 // Send the given command to a tab showing Music Beta,
 // or open one if non exists.
-function sendCommand(command) {
+function clickButton(buttonId) {
   FindMusicBetaTab(function(tab_id) {
       if (tab_id) {
-        if (command == "foreground") {
-          chrome.tabs.update(tab_id, {selected: true});
-        } else {
-          chrome.tabs.executeScript(tab_id,
-              {
-                code: "location.assign('javascript:SJBpost(\"" + command +
-                      "\");void 0');",
-                allFrames: true
-              });
-        }
+        chrome.tabs.executeScript(tab_id,
+            {
+              code: "document.querySelector('*[data-id=\"" + buttonId +
+                    "\"]').click();",
+              allFrames: true
+            });
       } else {
         chrome.tabs.create({url: 'http://play.google.com/music/listen',
                             selected: true});
@@ -69,7 +65,7 @@ chrome.tabs.onUpdated.addListener(UpdateIconFromPageState);
 
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function (tab) {
-    sendCommand('playPause');
+    clickButton('play-pause');
   });
 
 // Called when the Play/Pause state changes.
@@ -88,12 +84,15 @@ chrome.omnibox.onInputChanged.addListener(function (text, suggest) {
   });
 chrome.omnibox.onInputEntered.addListener(function (text) {
     if (text.toLowerCase().match('pp')) {
-      sendCommand('playPause');;
+      clickButton('play-pause');;
     } else if (text.toLowerCase().match('rs')) {
-      sendCommand('prevSong');
+      clickButton('rewind');
     } else if (text.toLowerCase().match('sk')) {
-      sendCommand('nextSong');
+      clickButton('forward');
     } else if (text.toLowerCase().match('fg')) {
-      sendCommand('foreground');
+        FindMusicBetaTab(function(tab_id) {
+          if (tab_id)
+            chrome.tabs.update(tab_id, {selected: true});
+        });
     }
   });
