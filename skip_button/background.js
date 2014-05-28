@@ -47,11 +47,12 @@ chrome.browserAction.onClicked.addListener(function(tab) {
       if (tab_id) {
         chrome.tabs.executeScript(tab_id,
             {
-              code:"location.assign('javascript:SJBpost(\"nextSong\");void 0');",
+              code: "document.querySelector('*[data-id=\"forward\"]').click();",
               allFrames: true
             });
       } else {
-        chrome.tabs.create({url: 'http://play.google.com/music/listen', selected: true});
+        chrome.tabs.create({url: 'http://play.google.com/music/listen',
+                            selected: true});
       }
     });
 });
